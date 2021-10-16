@@ -5,6 +5,8 @@ enum CarouselPageChangedReason { timed, manual, controller }
 enum CenterPageEnlargeStrategy { scale, height }
 
 class CarouselOptions {
+  /// Whether to add padding to both ends of the list.
+  final bool padEnds;
   /// Set carousel height and overrides any existing [aspectRatio].
   final double? height;
 
@@ -122,6 +124,7 @@ class CarouselOptions {
     this.initialPage: 0,
     this.enableInfiniteScroll: true,
     this.reverse: false,
+    this.padEnds: true,
     this.autoPlay: false,
     this.autoPlayInterval: const Duration(seconds: 4),
     this.autoPlayAnimationDuration = const Duration(milliseconds: 800),
