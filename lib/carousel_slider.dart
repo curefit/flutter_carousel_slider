@@ -93,6 +93,10 @@ class CarouselSliderState extends State<CarouselSlider>
     );
     carouselState!.pageController = pageController;
 
+    if (oldWidget.options.autoPlayInterval.inMilliseconds != widget.options.autoPlayInterval.inMilliseconds && oldWidget.options.autoPlay) {
+      clearTimer();
+      resumeTimer();
+    }
     // handle autoplay when state changes
     handleAutoPlay();
 
