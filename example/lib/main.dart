@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart' as CarouselSlider;
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 final List<String> imgList = [
@@ -100,8 +100,8 @@ class BasicDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Basic demo')),
       body: Container(
-          child: CarouselSlider.CarouselSlider(
-        options: CarouselSlider.CarouselOptions(),
+          child: CarouselSlider(
+        options: CarouselOptions(),
         items: list
             .map((item) => Container(
                   child: Center(child: Text(item.toString())),
@@ -120,8 +120,8 @@ class NoCenterDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Basic demo')),
       body: Container(
-          child: CarouselSlider.CarouselSlider(
-        options: CarouselSlider.CarouselOptions(
+          child: CarouselSlider(
+        options: CarouselOptions(
           disableCenter: true,
         ),
         items: list
@@ -141,8 +141,8 @@ class ImageSliderDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Image slider demo')),
       body: Container(
-          child: CarouselSlider.CarouselSlider(
-        options: CarouselSlider.CarouselOptions(),
+          child: CarouselSlider(
+        options: CarouselOptions(),
         items: imgList
             .map((item) => Container(
                   child: Center(
@@ -203,8 +203,8 @@ class ComplicatedImageDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Complicated image slider demo')),
       body: Container(
-        child: CarouselSlider.CarouselSlider(
-          options: CarouselSlider.CarouselOptions(
+        child: CarouselSlider(
+          options: CarouselOptions(
             autoPlay: true,
             aspectRatio: 2.0,
             enlargeCenterPage: true,
@@ -222,12 +222,12 @@ class EnlargeStrategyDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Complicated image slider demo')),
       body: Container(
-        child: CarouselSlider.CarouselSlider(
-          options: CarouselSlider.CarouselOptions(
+        child: CarouselSlider(
+          options: CarouselOptions(
             autoPlay: true,
             aspectRatio: 2.0,
             enlargeCenterPage: true,
-            enlargeStrategy: CarouselSlider.CenterPageEnlargeStrategy.height,
+            enlargeStrategy: CenterPageEnlargeStrategy.height,
           ),
           items: imageSliders,
         ),
@@ -244,7 +244,7 @@ class ManuallyControlledSlider extends StatefulWidget {
 }
 
 class _ManuallyControlledSliderState extends State<ManuallyControlledSlider> {
-  final CarouselSlider.CarouselController _controller = CarouselSlider.CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
 
   @override
   void initState() {
@@ -258,9 +258,9 @@ class _ManuallyControlledSliderState extends State<ManuallyControlledSlider> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              CarouselSlider.CarouselSlider(
+              CarouselSlider(
                 items: imageSliders,
-                options: CarouselSlider.CarouselOptions(enlargeCenterPage: true, height: 200),
+                options: CarouselOptions(enlargeCenterPage: true, height: 200),
                 carouselController: _controller,
               ),
               Row(
