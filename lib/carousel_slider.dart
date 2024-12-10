@@ -41,7 +41,7 @@ class CarouselSlider extends StatefulWidget {
       : itemBuilder = null,
         itemCount = items != null ? items.length : 0,
         _carouselController = carouselController ??
-            CarouselController() as CarouselSliderControllerImpl,
+            CarouselSliderControllerImpl(),
         super(key: key);
 
   /// The on demand item builder constructor
