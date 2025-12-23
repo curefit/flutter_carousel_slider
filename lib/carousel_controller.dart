@@ -1,7 +1,7 @@
 import 'dart:async';
 
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
 
 import 'carousel_options.dart';
 import 'carousel_state.dart';
@@ -12,13 +12,13 @@ abstract class CarouselSliderController {
 
   Future<Null> get onReady;
 
-  Future<void> nextPage({Duration? duration, Curve? curve});
+  Future<void> nextPage({Duration? duration, material.Curve? curve});
 
-  Future<void> previousPage({Duration? duration, Curve? curve});
+  Future<void> previousPage({Duration? duration, material.Curve? curve});
 
   void jumpToPage(int page);
 
-  Future<void> animateToPage(int page, {Duration? duration, Curve? curve});
+  Future<void> animateToPage(int page, {Duration? duration, material.Curve? curve});
 
   void startAutoPlay();
 
@@ -54,7 +54,7 @@ class CarouselSliderControllerImpl implements CarouselSliderController {
   /// The returned [Future] resolves when the animation completes.
   Future<void> nextPage(
       {Duration? duration = const Duration(milliseconds: 300),
-      Curve? curve = Curves.linear}) async {
+        material.Curve? curve = material.Curves.linear}) async {
     final bool isNeedResetTimer = _state!.options.pauseAutoPlayOnManualNavigate;
     if (isNeedResetTimer) {
       _state!.onResetTimer();
@@ -72,7 +72,7 @@ class CarouselSliderControllerImpl implements CarouselSliderController {
   /// The returned [Future] resolves when the animation completes.
   Future<void> previousPage(
       {Duration? duration = const Duration(milliseconds: 300),
-      Curve? curve = Curves.linear}) async {
+        material.Curve? curve = material.Curves.linear}) async {
     final bool isNeedResetTimer = _state!.options.pauseAutoPlayOnManualNavigate;
     if (isNeedResetTimer) {
       _state!.onResetTimer();
@@ -103,7 +103,7 @@ class CarouselSliderControllerImpl implements CarouselSliderController {
   /// The returned [Future] resolves when the animation completes.
   Future<void> animateToPage(int page,
       {Duration? duration = const Duration(milliseconds: 300),
-      Curve? curve = Curves.linear}) async {
+        material.Curve? curve = material.Curves.linear}) async {
     final bool isNeedResetTimer = _state!.options.pauseAutoPlayOnManualNavigate;
     if (isNeedResetTimer) {
       _state!.onResetTimer();
