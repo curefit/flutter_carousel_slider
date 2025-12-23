@@ -53,7 +53,7 @@ class CarouselSlider extends StatefulWidget {
       Key? key})
       : items = null,
         _carouselController = carouselController ??
-            CarouselController() as carousel.CarouselSliderControllerImpl,
+            carousel.CarouselSliderController() as carousel.CarouselSliderControllerImpl,
         super(key: key);
 
   @override
